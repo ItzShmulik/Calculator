@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Calibri';
+    box-sizing: border-box;
 }
 
 body{
@@ -32,12 +33,12 @@ body{
     border-bottom: var(--underline-color) 6px solid;
     margin-bottom: 10%;
     font-size: 30px;
-    line-height: 115px;
 }
 
 #display-input{
-    position: absolute;
     left: 10%;
+    height: fit-content;
+    line-height: 115px;
 }
 
 #grid-container{
