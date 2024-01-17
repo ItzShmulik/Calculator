@@ -1,42 +1,53 @@
+const displayInput = document.getElementById("display-input");
+
+const numberButtons = document.getElementsByClassName("number");
+const symbolButtons = document.getElementsByClassName("symbol");
+const clearButton = document.getElementById("clear");
+const eqButton = document.getElementById("=");
+
 let numbers = [];
 let symbols = [];
-let answer;
-
+let currentNumber = 0;
 let text = "";
 
-const display = document.getElementById("display-input");
-const buttonGrid = document.getElementsByClassName("grid-item");
-
-for (let index = 0; index < buttonGrid.length; index++) {
-    const button = buttonGrid[index];
-    if(button.id != "clear" && button.id != "="){
-        button.addEventListener("click", function(){displayText(button.id), addChar(button)});
-    }else if(button.id == "clear"){
-        button.addEventListener("click", clearText);
-    }else if(button.id == "="){
-        button.addEventListener("click", calculate);
-    }
+// Assign display text functions to number, symbol and clear buttons respectively
+for (let index = 0; index < numberButtons.length; index++) {
+    const button = numberButtons[index];
+    button.addEventListener("click", function(){displayText(button.id), addChar(button, "number")});
 }
 
+for (let index = 0; index < symbolButtons.length; index++) {
+    const button = symbolButtons[index];
+    button.addEventListener("click", function(){displayText(button.id), addChar(button, "symbol")});
+}
+
+clearButton.addEventListener("click", clearText);
+
+// Display Text to screen based on the given id
 function displayText(id){
     text += id;
-    display.innerText = text;
+    displayInput.innerHTML = text;
 }
 
+// Clear text on screen
 function clearText(){
     text = "";
-    display.innerText = text;
-    console.log("Cleared text!");
+    displayInput.innerHTML = text;
+    currentNumber = 0;
+    numbers = [];
+    symbols = [];
 }
 
-function addChar(element){
-    if(element.getAttribute("class") == "grid-item number"){
-        console.log("Number!")
-    }else if(element.getAttribute("class") == "grid-item symbol"){
-        console.log("Symbol!");
+// Add the entered character based on it's type
+function addChar(element, type){
+    if(type == "number"){
+        currentNumber = currentNumber * 10 + JSON.parse(element.id);
+        console.log(currentNumber);
+    }else{
+        numbers.push(currentNumber);
+        currentNumber = 0;
+        symbols.push(element.id);
+        console.log(numbers);
+        console.log(symbols);
     }
-}
-
-function calculate(){
-    clearText();
 }
