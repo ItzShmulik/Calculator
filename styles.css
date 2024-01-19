@@ -60,6 +60,14 @@ body{
     border-bottom: var(--underline-color) 6px solid;
 }
 
+.grid-item:active{
+    border-bottom: var(--underline-color) 3px solid;
+}
+
+.grid-item:hover{
+    background-color: #b1b3b5;
+}
+
 .grid-item label{
     font-size: 30px;
 }
@@ -68,6 +76,14 @@ body{
     background-color: #94e0b9;
 }
 
+.symbol:hover{
+    background-color: #8bc4a7;
+}
+
 #clear{
     background-color: #d98b8b;
+}
+
+#clear:hover{
+    background-color: #d97777;
 }
