@@ -22,6 +22,7 @@ for (let index = 0; index < symbolButtons.length; index++) {
 }
 
 clearButton.addEventListener("click", clearText);
+eqButton.addEventListener("click", calculate);
 
 // Display Text to screen based on the given id
 function displayText(id){
@@ -38,16 +39,24 @@ function clearText(){
     symbols = [];
 }
 
+function calculate(){
+    clearText();
+}
+
 // Add the entered character based on it's type
 function addChar(element, type){
     if(type == "number"){
         currentNumber = currentNumber * 10 + JSON.parse(element.id);
         console.log(currentNumber);
     }else{
-        numbers.push(currentNumber);
-        currentNumber = 0;
-        symbols.push(element.id);
-        console.log(numbers);
-        console.log(symbols);
+        appendLastNumber(element);
     }
+}
+
+function appendLastNumber(element){
+    numbers.push(currentNumber);
+    currentNumber = 0;
+    symbols.push(element.id);
+    console.log(numbers);
+    console.log(symbols);
 }
