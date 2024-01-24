@@ -52,12 +52,27 @@ function calculate(cNumber){
             console.log(currentAnswer);
         // Option 2: More than 1 numbers were inputted
         }else{
-            
-        }
+                currentAnswer = numbers[0];
+                for (let i = 0; i < numbers.length; i++) {
+                    currentSymbol = symbols[i];
+                    if(currentSymbol == '+'){
+                        currentAnswer += numbers[i+1];
+                    }else if(currentSymbol == '-'){
+                        currentAnswer -= numbers[i+1];
+                    }else if(currentSymbol == 'x'){
+                        currentAnswer *= numbers[i+1];
+                    }else if(currentSymbol == '/' && numbers[i+1] != 0){
+                        currentAnswer /= numbers[i+1];
+                    }
+                }
+            }
+            console.log(currentAnswer);
     }
 
     clearText();
 }
+
+
 
 // Add the entered character based on it's type
 function addChar(element, type){
