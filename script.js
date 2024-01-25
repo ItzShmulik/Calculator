@@ -68,6 +68,7 @@ function calculate(cNumber){
                 }
             }
             console.log(currentAnswer);
+            answerOutput.innerText = JSON.stringify(currentAnswer);
     }
 
     clearText();
@@ -82,6 +83,8 @@ function addChar(element, type){
     }else{
         appendLastNumber(element);
     }
+
+    if(answerOutput.innerText != "") answerOutput.innerText = "";
 }
 
 function appendLastNumber(element){
