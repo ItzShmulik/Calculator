@@ -62,8 +62,14 @@ function calculate(cNumber){
                         currentAnswer -= numbers[i+1];
                     }else if(currentSymbol == 'x'){
                         currentAnswer *= numbers[i+1];
-                    }else if(currentSymbol == '/' && numbers[i+1] != 0){
-                        currentAnswer /= numbers[i+1];
+                    }else if(currentSymbol == '/'){
+                        if(numbers[i+1] !=0){
+                            currentAnswer /= numbers[i+1];
+                        }else{
+                            answerOutput.innerText = "Math Error";
+                            clearText();
+                            return;
+                        }
                     }
                 }
             }
