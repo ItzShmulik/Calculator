@@ -1,4 +1,5 @@
 const displayInput = document.getElementById("display-input");
+const answerOutput = document.getElementById("answer-output");
 
 const numberButtons = document.getElementsByClassName("number");
 const symbolButtons = document.getElementsByClassName("symbol");

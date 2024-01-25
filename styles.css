@@ -39,6 +39,16 @@ body{
     left: 10%;
     height: fit-content;
     line-height: 115px;
+    position: absolute;
+}
+
+#answer-output{
+    position: relative;
+    display: block;
+    top: 60%;
+    width: 100%;
+    padding-right: 5px;
+    text-align: end;
 }
 
 #grid-container{
